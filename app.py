@@ -26,14 +26,14 @@ class Receita(db.Model):
     def to_json(self):
         return{"id":self.id, "nome":self.nome}
     
-# class ReceitaIngrediente(db.Model):
-#     __tablename__ = 'receita_ingrediente' 
-#     id = db.Column(db.Integer, primary_key=True)
-#     receita_id = db.Column(db.Integer, db.ForeignKey('receita.id'), nullable=False)
-#     ingrediente_id = db.Column(db.Integer, db.ForeignKey('ingrediente.id'), nullable=False)
+class ReceitaIngrediente(db.Model):
+    __tablename__ = 'receita_ingrediente' 
+    id = db.Column(db.Integer, primary_key=True)
+    receita_id = db.Column(db.Integer, db.ForeignKey('receita.id'), nullable=False)
+    ingrediente_id = db.Column(db.Integer, db.ForeignKey('ingrediente.id'), nullable=False)
 
-#     receita = db.relationship('Receita', backref=db.backref('receita_ingrediente', lazy=True))
-#     ingrediente = db.relationship('Ingrediente', backref=db.backref('receita_ingrediente', lazy=True))
+    receita = db.relationship('Receita', backref=db.backref('receita_ingrediente', lazy=True))
+    ingrediente = db.relationship('Ingrediente', backref=db.backref('receita_ingrediente', lazy=True))
     
    
 
@@ -197,4 +197,4 @@ def gera_response(status, nome_do_conteudo, conteudo, mensagem=False):
 
     return Response(json.dumps(body), status=status, mimetype="application/json")
 
-# app.run()
+app.run()
