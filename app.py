@@ -1,11 +1,10 @@
 from flask import Flask, Response, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-import mysql.connector
 import json
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:zUnRkRWdnZigKiWWkYSxxSXxCZGKFBQa@junction.proxy.rlwy.net:32052/railway'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///meu_banco.db'
 app.app_context().push()
 
 db = SQLAlchemy(app)
