@@ -2,4 +2,4 @@ flask
 flask_sqlalchemy
 mysql-connector-python
 mysqlclient
-gunicorn app:app --bind 0.0.0.0:$PORT
+gunicorn 
