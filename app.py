@@ -5,7 +5,7 @@ import json
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:utJnahZlnDwJkDlyhWLkNnNLBsBUPBtx@junction.proxy.rlwy.net:19380/railway'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/iris'
 app.app_context().push()
 
 db = SQLAlchemy(app)
@@ -197,4 +197,5 @@ def gera_response(status, nome_do_conteudo, conteudo, mensagem=False):
 
     return Response(json.dumps(body), status=status, mimetype="application/json")
 
-app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
+if __name__ == '__main__':
+    app.run(debug=True)
