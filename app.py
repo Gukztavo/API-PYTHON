@@ -44,9 +44,10 @@ class ReceitaIngrediente(db.Model):
 def selecionaTodas():
     receita_objetos = Receita.query.all()
     receita_json = [receita.to_json() for receita in receita_objetos]
-    
-    return gera_response(200, "receitas", receita_json)
+    print("oiii")
 
+    return gera_response(200, "receitas", receita_json)
+    print("oiii")
     
 
 @app.route("/ingredientes", methods=['GET'])
