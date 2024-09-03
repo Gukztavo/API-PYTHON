@@ -40,7 +40,7 @@ class ReceitaIngrediente(db.Model):
 
 
 
-@app.route("/receita", methods=['GET'])
+@app.route("/receitas", methods=['GET'])
 def selecionaTodas():
     receita_objetos = Receita.query.all()
     receita_json = [receita.to_json() for receita in receita_objetos]
@@ -49,7 +49,7 @@ def selecionaTodas():
 
     
 
-@app.route("/ingrediente", methods=['GET'])
+@app.route("/ingredientes", methods=['GET'])
 def selecionaTodos():
     ingredientes_objetos = Ingrediente.query.all()
     # Chama o metodo to_json()
